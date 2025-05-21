@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // const counterObject = require('./myscript.js');
 
 // console.log(counterObject.getCounter()); 
@@ -9,7 +11,6 @@
 
 // console.log(newCounterObject.getCounter());
 
-#!/usr/bin/env node
 
 const fs = require('fs');
 

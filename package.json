@@ -1,5 +1,5 @@
 {
-  "name": "node",
+  "name": "list",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bin": {
+     "nls": "index.js"
+  },
   "bugs": {
     "url": "https://github.com/sarroc/Node/issues"
   },
   "homepage": "https://github.com/sarroc/Node#readme",
-  "description": "",
-  "bin": {
-    "nls": "index.js"
-  }
+  "description": ""
 }
