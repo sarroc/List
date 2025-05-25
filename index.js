@@ -18,23 +18,24 @@ const util = require('util');
 // Method #2  (promisify function)
 //  const lstat = util.promisify(fs.lstat);
 
-// Method #3 (promise based implementation)
+// Method #3 (best solution, no downsides as everything is executed simultaneously)
 const { lstat } = fs.promises;
 
 fs.readdir(process.cwd(), async (err, filenames) => {
     if (err) {
         console.log(err);
     }
+    const statPromises = filenames.map(filename =>{
+        return lstat(filename);
+    });
 
-    for (let filename of filenames) {
-        try {
-        const stats = await lstat(filename);
+    const allStats = await Promise.all(statPromises);
 
-        console.log(filename, stats.isFile());
-    } catch (err) {
-        console.log(err);
+    for (let stats of allStats) {
+        const index = allStats.indexOf(stats);
+        
+        console.log(filenames[index], stats.isFile());
     }
-  }
 });
 
 
